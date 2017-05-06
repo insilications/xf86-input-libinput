@@ -1,3 +1,35 @@
+commit a80773a488da3f3dfe5a5dc0fd658dc8a6a3b331
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Fri May 5 13:43:23 2017 +1000
+
+    xf86-input-libinput 0.25.1
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 8bc694595d26c2ae7dd98b27c9eed0ec0366b7a5
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Mar 21 13:13:43 2017 +1000
+
+    Post a motion event after proximity events
+    
+    This patch splits the meat of xf86libinput_handle_tablet_axis into a helper
+    function xf86libinput_post_tablet_motion(), to be called right after we send
+    the proximity in event.
+    
+    Clients that don't handle proximity (e.g. all XI2 clients) don't see the
+    coordinates we send along with the proximity events. And, for historical
+    reasons, they may not look at the coordinates in button events. So a device
+    that comes into proximity and immediately sends a tip down button event
+    doesn't send a motion event, causing the client to think the tip down was at
+    whatever the last known position was (before previous prox-out).
+    
+    The practical effect is that when a user tries to draw a few dots, they end up
+    being connected to each other.
+    
+    https://bugzilla.redhat.com/show_bug.cgi?id=1433755
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
 commit 153a7fc62fa87a2cc2516826b3eae16fa8cc861d
 Author: Peter Hutterer <peter.hutterer@who-t.net>
 Date:   Thu Mar 9 15:58:39 2017 +1000
