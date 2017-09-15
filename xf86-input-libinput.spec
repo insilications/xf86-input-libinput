@@ -5,20 +5,22 @@
 # Source0 file verified with key 0xE23B7E70B467F0BF (office@who-t.net)
 #
 Name     : xf86-input-libinput
-Version  : 0.25.1
-Release  : 4
-URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.25.1.tar.gz
-Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.25.1.tar.gz
-Source99 : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.25.1.tar.gz.sig
+Version  : 0.26.0
+Release  : 5
+URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.26.0.tar.gz
+Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.26.0.tar.gz
+Source99 : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.26.0.tar.gz.sig
 Summary  : X.Org libinput input driver.
 Group    : Development/Tools
 License  : HPND MIT
 Requires: xf86-input-libinput-lib
 Requires: xf86-input-libinput-data
 Requires: xf86-input-libinput-doc
+BuildRequires : pkgconfig(inputproto)
 BuildRequires : pkgconfig(libinput)
 BuildRequires : pkgconfig(xorg-macros)
 BuildRequires : pkgconfig(xorg-server)
+BuildRequires : pkgconfig(xproto)
 
 %description
 xf86-input-libinput - a libinput-based X driver
@@ -61,14 +63,14 @@ lib components for the xf86-input-libinput package.
 
 
 %prep
-%setup -q -n xf86-input-libinput-0.25.1
+%setup -q -n xf86-input-libinput-0.26.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1494085421
+export SOURCE_DATE_EPOCH=1505473399
 export CFLAGS="-O3 -g -fopt-info-vec "
 unset LDFLAGS
 %configure --disable-static
@@ -82,7 +84,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1494085421
+export SOURCE_DATE_EPOCH=1505473399
 rm -rf %{buildroot}
 %make_install
 
