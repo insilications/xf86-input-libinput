@@ -6,7 +6,7 @@
 #
 Name     : xf86-input-libinput
 Version  : 0.26.0
-Release  : 5
+Release  : 6
 URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.26.0.tar.gz
 Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.26.0.tar.gz
 Source99 : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.26.0.tar.gz.sig
@@ -70,7 +70,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505473399
+export SOURCE_DATE_EPOCH=1507170556
 export CFLAGS="-O3 -g -fopt-info-vec "
 unset LDFLAGS
 %configure --disable-static
@@ -84,7 +84,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1505473399
+export SOURCE_DATE_EPOCH=1507170556
 rm -rf %{buildroot}
 %make_install
 
