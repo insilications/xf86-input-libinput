@@ -6,7 +6,7 @@
 #
 Name     : xf86-input-libinput
 Version  : 0.26.0
-Release  : 7
+Release  : 8
 URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.26.0.tar.gz
 Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.26.0.tar.gz
 Source99 : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.26.0.tar.gz.sig
@@ -21,6 +21,7 @@ BuildRequires : pkgconfig(libinput)
 BuildRequires : pkgconfig(xorg-macros)
 BuildRequires : pkgconfig(xorg-server)
 BuildRequires : pkgconfig(xproto)
+BuildRequires : systemd-dev
 
 %description
 xf86-input-libinput - a libinput-based X driver
@@ -70,11 +71,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1507170556
+export SOURCE_DATE_EPOCH=1519050632
 export CFLAGS="-O3 -g -fopt-info-vec "
 unset LDFLAGS
 %configure --disable-static
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 
 %check
 export LANG=C
@@ -84,7 +85,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1507170556
+export SOURCE_DATE_EPOCH=1519050632
 rm -rf %{buildroot}
 %make_install
 
