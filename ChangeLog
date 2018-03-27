@@ -1,3 +1,82 @@
+commit f93bc148d4e6702d50ce320f6d519753c0af7c42
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Mar 20 11:23:57 2018 +1000
+
+    xf86-input-libinput 0.27.0
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 0d4b50fd6e200cb8b720ee0b917b882d2d03542b
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Mar 19 10:00:59 2018 +1000
+
+    man: note that we don't do /dev/input/by-id or /dev/input/by-path
+    
+    For logind-setups we need to match the path libinput wants to open with the
+    Option Device path that the device has so we know when to return the
+    server-fd. This doesn't work for by-id or by-path because libinput resolves
+    those (through udev) to the actual eventX node so our paths look different
+    when they are the same device.
+    
+    This could be fixed but since this is easy enough to work around with a
+    InputClass section and rather a niche case, it's not really worth the effort.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=105562
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Reviewed-by: Adam Jackson <ajax@redhat.com>
+
+commit 9d9f59fd4c5a57e4663b19c3cace6f78202c4689
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Fri Feb 2 13:54:32 2018 +1000
+
+    Apply the capabilities checks on subdevices when applying the config
+    
+    Properties are initialized on the correct devices only but on resume we'd just
+    blindly apply the config from our device. Depending on the resume order, this
+    would mean we'd apply a previously set config with a default config.
+    
+    Example:
+    * pointer device with keyboard subdevice
+    * pointer device exports natural scrolling, keyboard device does not and
+      remains at default (off)
+    * client enables natural scrolling on the pointer device
+    * VT switch away, VT switch back
+    * pointer device gets enabled first, enables natural scrolling on the
+      libinput device
+    * keyboard device gets enabled second, resets to the default value
+    
+    Reported-by: Yuxuan Shui <yshuiv7@gmail.com>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+    Tested-by: Yuxuan Shui <yshuiv7@gmail.com>
+
+commit 73534814909b8b6f4fce8f44b412b2903397bdb0
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Fri Feb 2 13:24:43 2018 +1000
+
+    Split LibinputDeviceApplyConfig into helper functions
+    
+    No functional changes
+
+commit 6d3bd4544a6a2f194fa2ca7e08dca9cc44211e99
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Fri Feb 2 13:27:11 2018 +1000
+
+    Move the subdevice capabilities check into the properties
+    
+    87f9fe3a6fafe60134c6's intention was to not create properties that a subdevice
+    doesn't have configuration options for (i.e. if you have a pointer+keyboard
+    device, don't expose tapping configuration on the keyboard subdevice).
+    
+    The result was messy, the checker function had a confusing triple-negation and
+    some properties weren't checked - e.g. left-handed was allowed for touch/tablet
+    but not for pointer, dwt was allowed for any device.
+    
+    Fix this by moving the check into the property init function directly and
+    inverting the helper function to be easier to read.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
 commit 2be6487de417473aac85ebd800392cdd8604c4a6
 Author: Peter Hutterer <peter.hutterer@who-t.net>
 Date:   Fri Sep 15 11:26:54 2017 +1000
