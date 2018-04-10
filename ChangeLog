@@ -1,3 +1,26 @@
+commit 18cc042e6822f5f24d06291ead07ea70723f9434
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Apr 10 09:19:52 2018 +1000
+
+    xf86-input-libinput 0.27.1
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 0db82219bb2ad10dcdf3ea8fe8e226858190c83b
+Author: Evangelos Foutras <evangelos@foutrelis.com>
+Date:   Thu Mar 22 01:47:07 2018 +0200
+
+    Fix "left handed" property not set on all pointers
+    
+    Remove conditional that prevents the LIBINPUT_PROP_LEFT_HANDED{,DEFAULT}
+    properties from being set on all pointer devices (only the first got it).
+    This appears to be a debugging left-over accidentally merged in
+    6d3bd4544a6a2f194fa.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=105667
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
 commit f93bc148d4e6702d50ce320f6d519753c0af7c42
 Author: Peter Hutterer <peter.hutterer@who-t.net>
 Date:   Tue Mar 20 11:23:57 2018 +1000
