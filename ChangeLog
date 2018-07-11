@@ -1,3 +1,97 @@
+commit c67f191d5bc1a4a130f89743a3ce35ee06c90f85
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Wed Jul 11 11:06:59 2018 +1000
+
+    xf86-input-libinput 0.28.0
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 1978a2555b338e5177523046e6338f58a4253951
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Wed Jul 11 10:59:20 2018 +1000
+
+    Minor whitespace fix
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 0909a1a76546284f27fb1b17a6f545a04537cc36
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Jul 10 11:17:50 2018 +1000
+
+    draglock: fix memory overwrite during draglock parsing
+    
+    Passing in the size of the array but using it as "number of elements" inside
+    the function. Rename a bunch of arguments to avoid this.
+    
+    https://bugs.freedesktop.org/show_bug.cgi?id=107166
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 20bb8d6b9f4375557472dad67b5f8dcf31be27d3
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Wed May 23 08:14:23 2018 +1000
+
+    Revert "Implement the custom acceleration curve options"
+    
+    Custom pointer acceleration curves were reverted in libinput, so no point
+    having this code here.
+    
+    This reverts commit d84e0035d12a9655c09a6e8c619b1144be42c90c.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 1e88664d958a000ac610ae9000459c461ba45bd8
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Wed May 2 13:59:00 2018 +1000
+
+    Use the libinput touch count to init the right number of touches
+    
+    Initial version by Johannes Pointner <h4nn35.work@gmail.com>
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit d84e0035d12a9655c09a6e8c619b1144be42c90c
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Apr 17 13:51:53 2018 +1000
+
+    Implement the custom acceleration curve options
+    
+    One new property, and the existing accel profile gets extended to keep one
+    extra value. The new property libinput Accel Curve Points is a list of pairs
+    of points to be added to the acceleration curve.
+    
+    libinput only supports adding points to the curve so we simply declare the
+    behavior as undefined when the curve is set multiple times. Also helps to
+    identify those that bother to read the man page before playing with random
+    driver values.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 6c75acfcdf6539713c3b62bc2227a4b215d05fdb
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Fri Apr 20 13:33:45 2018 +1000
+
+    Use xf86SetStrOption to check for string options
+    
+    This one shows up in the log and marks it as used.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit eaf847be16de1399aa271b94e4421a3794447462
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Apr 17 15:10:42 2018 +1000
+
+    man: whitespace fixes in man page
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit d319092d557ec0280602879b19ef1b0a825e1e75
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Apr 17 13:52:11 2018 +1000
+
+    man: fix formatting issue caused by invalid tag
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
 commit 18cc042e6822f5f24d06291ead07ea70723f9434
 Author: Peter Hutterer <peter.hutterer@who-t.net>
 Date:   Tue Apr 10 09:19:52 2018 +1000
