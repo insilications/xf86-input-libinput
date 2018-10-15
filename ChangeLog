@@ -1,3 +1,34 @@
+commit e26fc3c66c04eb3d3164e6a9e7c983154fb00856
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Oct 15 09:36:36 2018 +1000
+
+    xf86-input-libinput 0.28.1
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit a759610292a53067fc811e70703bffff8dc0cb16
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Oct 4 11:45:46 2018 +1000
+
+    Use the seat slot, not the device slot for touch events
+    
+    The device slot is per-device, so if we have more than one device we may get a
+    touch down event for a slot already in use.
+    
+    Fixes https://gitlab.freedesktop.org/libinput/libinput/issues/153
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 21ff2ca7d1a771f6dcecb5b73dc1031f77c9dd69
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Thu Jul 19 15:58:06 2018 +1000
+
+    Remove unused assignment
+    
+    dev is our list iterator below, this is a dead assignment
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
 commit c67f191d5bc1a4a130f89743a3ce35ee06c90f85
 Author: Peter Hutterer <peter.hutterer@who-t.net>
 Date:   Wed Jul 11 11:06:59 2018 +1000

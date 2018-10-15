@@ -1,5 +1,5 @@
 PKG_NAME := xf86-input-libinput
-URL = https://www.x.org/releases/individual/driver/xf86-input-libinput-0.28.0.tar.bz2
+URL = https://www.x.org/releases/individual/driver/xf86-input-libinput-0.28.1.tar.bz2
 ARCHIVES = 
 
 include ../common/Makefile.common
