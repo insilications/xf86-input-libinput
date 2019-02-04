@@ -1,3 +1,91 @@
+commit 5a925eaa84b31c5857969342802018cb5803475a
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Feb 4 13:14:11 2019 +1000
+
+    xf86-input-libinput 0.28.2
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit e7eafa199e9e60c15014a9d72d14efcbbf8e44ca
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Jan 21 15:21:45 2019 +1000
+
+    Handle scroll wheel events with a discrete of 0
+    
+    The driver currently assumes that any wheel event has a non-zero discrete
+    value of 1. This is incorrect, it just hasn't triggered yet with any device.
+    
+    With the hi-res scroll patches in place in the kernel and libinput, we may get
+    wheel events with a discrete value of 0. We assume that if this ever happens,
+    the device has some sensible click angle set so all we need to do is ignore
+    the discrete 0 events and wait for the first discrete event to come.
+    
+    Also add an explanatory comment too to make it clear the calculation is only
+    done once.
+    
+    Fixes #19
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit d13ab268bdf6eb589022c58ddc87c1211b49ac4c
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Jan 21 13:19:11 2019 +1000
+
+    Return the wheel scroll value instead of just the fraction
+    
+    This is prep work for the hi-res work but right now, no real functional
+    changes. It does however fix a bug where we used the vertial scroll dist for
+    the horizontal wheel as well.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 347c78387eb3fbadcd582f0ea51bb083962a728f
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Jan 21 13:05:23 2019 +1000
+
+    Split the scroll axis details up for easier extension
+    
+    If we need more per-axis fields, it's easier to add this way.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit b63f7994dc4359900dbb2a29612e0112b6ae5b79
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Jan 7 16:26:47 2019 +1000
+
+    conf: add an example snippet for how to assign options
+    
+    Users still like to copy the whole file, potentially messing things up.
+    Let's put a warning into the file directly that this is less than ideal.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 04f42d6e0f99d771cbbab25c896f287fd6697f37
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Nov 25 12:47:32 2018 -0800
+
+    Update configure.ac bug URL for gitlab migration
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 5d341d1d6c389b286279f87d7a3bdb0f5bd275f1
+Author: Alan Coopersmith <alan.coopersmith@oracle.com>
+Date:   Sun Nov 18 11:48:07 2018 -0800
+
+    Update README for gitlab migration
+    
+    Signed-off-by: Alan Coopersmith <alan.coopersmith@oracle.com>
+
+commit 4985de5ef3e81d32d694c3d4a480a6311b6f1416
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Oct 15 15:29:37 2018 +1000
+
+    Remove two dead assignments
+    
+    Value stored but never read.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
 commit e26fc3c66c04eb3d3164e6a9e7c983154fb00856
 Author: Peter Hutterer <peter.hutterer@who-t.net>
 Date:   Mon Oct 15 09:36:36 2018 +1000
