@@ -6,23 +6,31 @@
 #
 Name     : xf86-input-libinput
 Version  : 0.28.2
-Release  : 19
+Release  : 20
 URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.28.2.tar.bz2
 Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.28.2.tar.bz2
 Source99 : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.28.2.tar.bz2.sig
-Summary  : Generic input driver for the X.Org server based on libinput
+Summary  : X.Org libinput input driver.
 Group    : Development/Tools
 License  : HPND MIT
 Requires: xf86-input-libinput-data = %{version}-%{release}
 Requires: xf86-input-libinput-lib = %{version}-%{release}
 Requires: xf86-input-libinput-license = %{version}-%{release}
 Requires: xf86-input-libinput-man = %{version}-%{release}
+BuildRequires : automake
+BuildRequires : automake-dev
+BuildRequires : gettext-bin
+BuildRequires : libtool
+BuildRequires : libtool-dev
+BuildRequires : m4
+BuildRequires : pkg-config-dev
 BuildRequires : pkgconfig(inputproto)
 BuildRequires : pkgconfig(libinput)
 BuildRequires : pkgconfig(xorg-macros)
 BuildRequires : pkgconfig(xorg-server)
 BuildRequires : pkgconfig(xproto)
 BuildRequires : systemd-dev
+Patch1: 0001-Bump-priority-of-libinput.patch
 
 %description
 xf86-input-libinput - a libinput-based X driver
@@ -75,16 +83,18 @@ man components for the xf86-input-libinput package.
 
 %prep
 %setup -q -n xf86-input-libinput-0.28.2
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549288769
+export SOURCE_DATE_EPOCH=1551792170
 export CFLAGS="-O3 -g -fopt-info-vec "
 unset LDFLAGS
-%configure --disable-static
+export LDFLAGS="${LDFLAGS} -fno-lto"
+%reconfigure --disable-static
 make  %{?_smp_mflags}
 
 %check
@@ -95,7 +105,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1549288769
+export SOURCE_DATE_EPOCH=1551792170
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xf86-input-libinput
 cp COPYING %{buildroot}/usr/share/package-licenses/xf86-input-libinput/COPYING
@@ -106,7 +116,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/xf86-input-libinput/COPYING
 
 %files data
 %defattr(-,root,root,-)
-/usr/share/X11/xorg.conf.d/40-libinput.conf
+/usr/share/X11/xorg.conf.d/80-libinput.conf
 
 %files dev
 %defattr(-,root,root,-)

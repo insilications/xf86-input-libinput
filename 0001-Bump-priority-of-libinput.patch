@@ -1,0 +1,37 @@
+From 4cee2b5d856d8c4c6236d3f722e4f77af2d64604 Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <ikey.doherty@intel.com>
+Date: Tue, 5 Mar 2019 12:59:57 +0000
+Subject: [PATCH] Bump priority of libinput
+
+This ensures libinput is used whenever it is installed. This is
+because synaptics/evdev gain higher priority, thus having both
+present on a GNOME system will result in a degraded input
+experience, i.e. tap-to-click and such.
+
+Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
+---
+ Makefile.am                                 | 2 +-
+ conf/{40-libinput.conf => 80-libinput.conf} | 0
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+ rename conf/{40-libinput.conf => 80-libinput.conf} (100%)
+
+diff --git a/Makefile.am b/Makefile.am
+index a447d61..9fecbc8 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -27,7 +27,7 @@ MAINTAINERCLEANFILES = ChangeLog INSTALL
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = xorg-libinput.pc
+ 
+-dist_xorgconf_DATA = conf/40-libinput.conf
++dist_xorgconf_DATA = conf/80-libinput.conf
+ 
+ .PHONY: ChangeLog INSTALL
+ 
+diff --git a/conf/40-libinput.conf b/conf/80-libinput.conf
+similarity index 100%
+rename from conf/40-libinput.conf
+rename to conf/80-libinput.conf
+-- 
+2.20.1
+
