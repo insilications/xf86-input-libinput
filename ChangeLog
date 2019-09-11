@@ -1,3 +1,98 @@
+commit 400bf493d1840e72dc3bad624707b4934fe5de33
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Aug 12 12:35:51 2019 +1000
+
+    xf86-input-libinput 0.29.0
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 27a88897bedb8dca41be311a162243ec7f4a952d
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Aug 12 10:57:11 2019 +1000
+
+    Add basic Gitlab CI for testing the build
+    
+    This merely tests against the devel package in Fedora, not against the xserver
+    from git. Should be enough, the driver here doesn't change enough to need the
+    git builds.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit d5867e5db6300ba2fa08054f16af661bd0ae4200
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Mon Aug 12 10:35:15 2019 +1000
+
+    Fix compiler warning about unhandled switch events
+    
+    This bumps the required libinput version to 1.7 - which has been out for over
+    two years now. That's conservative enough.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 1ef2ed874e700a6be9091c01df5b432a3e4d8b2e
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Jul 30 11:23:46 2019 +1000
+
+    Check for the tool type too when creating subdevices
+    
+    Fixed #25
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 3c9052d8865200818a3e98ea9077df54829e724c
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Jul 30 11:10:55 2019 +1000
+
+    Fix wrong enum type
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 39b0bb4585106a56a51236d8e9843b2da8d745a5
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue Jul 30 11:46:50 2019 +1000
+
+    Revert "Upgrade the default scroll distance to 120"
+    
+    This was part of the high-resolution wheel work that was factored out ahead of
+    time. Problem is: this breaks scroll button emulation in the server as we
+    use the distance to determine when we click buttons 4-7.
+    
+    Before: movement of 15 normalized pixel units on a touchpad - one click. Now:
+    120 of those units. So that's a bit less than ideal.
+    
+    The change to 120 can be done, but needs the corresponding handling in the
+    axis distance calculations.
+    
+    Fixes #24
+    
+    This reverts commit 055481187d44b10ba220398a1ca46f4854fd76ee.
+
+commit 8923d18d25303354f250b4f165fa66b327b8ac7e
+Author: David Rosca <nowrep@gmail.com>
+Date:   Mon Feb 25 18:26:08 2019 +0100
+
+    Also use type to match tablet tool with device
+    
+    On devices with tools having both serial and id 0,
+    it would fail to create separate subdevices.
+    
+    Thinkpad X220T (Wacom ISDv4 E6) now correctly registers
+    Pen and Eraser xinput devices.
+
+commit 055481187d44b10ba220398a1ca46f4854fd76ee
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Wed Jan 23 09:01:24 2019 +1000
+
+    Upgrade the default scroll distance to 120
+    
+    This is just a number, to be used as divider and shouldn't have any effect in
+    correctly written clients. With the high-res scrolling coming up however, we
+    have a few devices where the dist cannot be expressed as an integer fraction
+    of 15, so let's up it to 120 because we know all hardware wheels have to be an
+    integer fraction of that that, thanks to Microsoft's API requirements.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
 commit 5a925eaa84b31c5857969342802018cb5803475a
 Author: Peter Hutterer <peter.hutterer@who-t.net>
 Date:   Mon Feb 4 13:14:11 2019 +1000
