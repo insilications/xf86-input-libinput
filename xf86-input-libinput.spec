@@ -6,7 +6,7 @@
 #
 Name     : xf86-input-libinput
 Version  : 0.29.0
-Release  : 22
+Release  : 23
 URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.29.0.tar.bz2
 Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.29.0.tar.bz2
 Source1 : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.29.0.tar.bz2.sig
