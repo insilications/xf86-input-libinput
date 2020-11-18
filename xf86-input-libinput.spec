@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xE23B7E70B467F0BF (office@who-t.net)
 #
 Name     : xf86-input-libinput
-Version  : 0.29.0
-Release  : 24
-URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.29.0.tar.bz2
-Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.29.0.tar.bz2
-Source1 : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.29.0.tar.bz2.sig
-Summary  : Generic input driver for the X.Org server based on libinput
+Version  : 0.30.0
+Release  : 25
+URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.30.0.tar.bz2
+Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.30.0.tar.bz2
+Source1  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.30.0.tar.bz2.sig
+Summary  : X.Org libinput input driver.
 Group    : Development/Tools
 License  : HPND MIT
 Requires: xf86-input-libinput-data = %{version}-%{release}
@@ -51,7 +51,6 @@ Requires: xf86-input-libinput-lib = %{version}-%{release}
 Requires: xf86-input-libinput-data = %{version}-%{release}
 Provides: xf86-input-libinput-devel = %{version}-%{release}
 Requires: xf86-input-libinput = %{version}-%{release}
-Requires: xf86-input-libinput = %{version}-%{release}
 
 %description dev
 dev components for the xf86-input-libinput package.
@@ -84,7 +83,8 @@ man components for the xf86-input-libinput package.
 
 
 %prep
-%setup -q -n xf86-input-libinput-0.29.0
+%setup -q -n xf86-input-libinput-0.30.0
+cd %{_builddir}/xf86-input-libinput-0.30.0
 %patch1 -p1
 
 %build
@@ -92,8 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568215303
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1605725142
 export GCC_IGNORE_WERROR=1
 export CFLAGS="-O3 -g -fopt-info-vec "
 unset LDFLAGS
@@ -101,8 +100,8 @@ export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %reconfigure --disable-static
 make  %{?_smp_mflags}
@@ -112,13 +111,13 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make VERBOSE=1 V=1 %{?_smp_mflags} check
+make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1568215303
+export SOURCE_DATE_EPOCH=1605725142
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xf86-input-libinput
-cp COPYING %{buildroot}/usr/share/package-licenses/xf86-input-libinput/COPYING
+cp %{_builddir}/xf86-input-libinput-0.30.0/COPYING %{buildroot}/usr/share/package-licenses/xf86-input-libinput/cbe3777926e7d77a282c0f5dd4cb4fdf9a61dfd1
 %make_install
 
 %files
@@ -139,7 +138,7 @@ cp COPYING %{buildroot}/usr/share/package-licenses/xf86-input-libinput/COPYING
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xf86-input-libinput/COPYING
+/usr/share/package-licenses/xf86-input-libinput/cbe3777926e7d77a282c0f5dd4cb4fdf9a61dfd1
 
 %files man
 %defattr(0644,root,root,0755)

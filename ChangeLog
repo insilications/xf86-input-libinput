@@ -1,3 +1,39 @@
+commit 583ed5acdc17a4dc7848c891d7cdbd35ff07b781
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue May 19 15:37:30 2020 +1000
+
+    xf86-input-libinput 0.30.0
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit e8e5d1a6b579c6bd5e6c9e76a53f13ca77fa0d5f
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue May 19 15:57:52 2020 +1000
+
+    gitlab CI: update to latest CI templates
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit 639b21d78a80566477163993366400e506f6e7b7
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Tue May 19 15:47:00 2020 +1000
+
+    gitlab CI: bump to Fedora 32
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
+commit e52daf203bb690e33b27514cb8fc76b263e6622a
+Author: Peter Hutterer <peter.hutterer@who-t.net>
+Date:   Fri Oct 11 10:24:30 2019 +1000
+
+    Implement support for scroll button locks
+    
+    Add a boolean option/property to enable/disable the scroll button lock. Where
+    enabled, the button can be clicked and released as opposed to having to be
+    held down.
+    
+    Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+
 commit 400bf493d1840e72dc3bad624707b4934fe5de33
 Author: Peter Hutterer <peter.hutterer@who-t.net>
 Date:   Mon Aug 12 12:35:51 2019 +1000
