@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xE23B7E70B467F0BF (office@who-t.net)
 #
 Name     : xf86-input-libinput
-Version  : 0.30.0
-Release  : 26
-URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.30.0.tar.bz2
-Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.30.0.tar.bz2
-Source1  : https://www.x.org/releases/individual/driver/xf86-input-libinput-0.30.0.tar.bz2.sig
+Version  : 1.0.0
+Release  : 27
+URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-1.0.0.tar.bz2
+Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-1.0.0.tar.bz2
+Source1  : https://www.x.org/releases/individual/driver/xf86-input-libinput-1.0.0.tar.bz2.sig
 Summary  : X.Org libinput input driver.
 Group    : Development/Tools
-License  : HPND MIT
+License  : MIT
 Requires: xf86-input-libinput-data = %{version}-%{release}
 Requires: xf86-input-libinput-lib = %{version}-%{release}
 Requires: xf86-input-libinput-license = %{version}-%{release}
@@ -83,8 +83,8 @@ man components for the xf86-input-libinput package.
 
 
 %prep
-%setup -q -n xf86-input-libinput-0.30.0
-cd %{_builddir}/xf86-input-libinput-0.30.0
+%setup -q -n xf86-input-libinput-1.0.0
+cd %{_builddir}/xf86-input-libinput-1.0.0
 %patch1 -p1
 
 %build
@@ -92,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1605725142
+export SOURCE_DATE_EPOCH=1617734244
 export GCC_IGNORE_WERROR=1
 export CFLAGS="-O3 -g -fopt-info-vec "
 unset LDFLAGS
@@ -114,10 +114,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1605725142
+export SOURCE_DATE_EPOCH=1617734244
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xf86-input-libinput
-cp %{_builddir}/xf86-input-libinput-0.30.0/COPYING %{buildroot}/usr/share/package-licenses/xf86-input-libinput/cbe3777926e7d77a282c0f5dd4cb4fdf9a61dfd1
+cp %{_builddir}/xf86-input-libinput-1.0.0/COPYING %{buildroot}/usr/share/package-licenses/xf86-input-libinput/fa42615cf49e7d89b1e2008fe33ff6d00a9b0f5c
 %make_install
 
 %files
@@ -138,7 +138,7 @@ cp %{_builddir}/xf86-input-libinput-0.30.0/COPYING %{buildroot}/usr/share/packag
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/xf86-input-libinput/cbe3777926e7d77a282c0f5dd4cb4fdf9a61dfd1
+/usr/share/package-licenses/xf86-input-libinput/fa42615cf49e7d89b1e2008fe33ff6d00a9b0f5c
 
 %files man
 %defattr(0644,root,root,0755)
