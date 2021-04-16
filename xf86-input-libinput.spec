@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xE23B7E70B467F0BF (office@who-t.net)
 #
 Name     : xf86-input-libinput
-Version  : 1.0.0
-Release  : 29
-URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-1.0.0.tar.bz2
-Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-1.0.0.tar.bz2
-Source1  : https://www.x.org/releases/individual/driver/xf86-input-libinput-1.0.0.tar.bz2.sig
+Version  : 1.0.1
+Release  : 30
+URL      : https://www.x.org/releases/individual/driver/xf86-input-libinput-1.0.1.tar.bz2
+Source0  : https://www.x.org/releases/individual/driver/xf86-input-libinput-1.0.1.tar.bz2
+Source1  : https://www.x.org/releases/individual/driver/xf86-input-libinput-1.0.1.tar.bz2.sig
 Summary  : X.Org libinput input driver.
 Group    : Development/Tools
 License  : MIT
@@ -83,8 +83,8 @@ man components for the xf86-input-libinput package.
 
 
 %prep
-%setup -q -n xf86-input-libinput-1.0.0
-cd %{_builddir}/xf86-input-libinput-1.0.0
+%setup -q -n xf86-input-libinput-1.0.1
+cd %{_builddir}/xf86-input-libinput-1.0.1
 %patch1 -p1
 
 %build
@@ -92,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1617734244
+export SOURCE_DATE_EPOCH=1618550623
 export GCC_IGNORE_WERROR=1
 export CFLAGS="-O3 -g -fopt-info-vec "
 unset LDFLAGS
@@ -114,10 +114,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1617734244
+export SOURCE_DATE_EPOCH=1618550623
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/xf86-input-libinput
-cp %{_builddir}/xf86-input-libinput-1.0.0/COPYING %{buildroot}/usr/share/package-licenses/xf86-input-libinput/fa42615cf49e7d89b1e2008fe33ff6d00a9b0f5c
+cp %{_builddir}/xf86-input-libinput-1.0.1/COPYING %{buildroot}/usr/share/package-licenses/xf86-input-libinput/fa42615cf49e7d89b1e2008fe33ff6d00a9b0f5c
 %make_install
 
 %files
