@@ -4,10 +4,10 @@
 #
 %define keepstatic 1
 Name     : xf86-input-libinput
-Version  : 6.9.2021
-Release  : 407
-URL      : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v6.9.2021.tar.gz
-Source0  : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v6.9.2021.tar.gz
+Version  : 6.8.2021
+Release  : 408
+URL      : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v6.8.2021.tar.gz
+Source0  : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v6.8.2021.tar.gz
 Summary  : X.Org libinput input driver.
 Group    : Development/Tools
 License  : MIT
@@ -345,7 +345,8 @@ BuildRequires : zstd-staticdev32
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
-Patch1: 0001-Bump-priority-of-libinput.patch
+Patch1: 0002-Increase-priority-of-libinput.patch
+Patch2: 0001-Increase-Mouse-wheel-sensitivity.patch
 
 %description
 xf86-input-libinput - a libinput-based X driver
@@ -382,6 +383,7 @@ man components for the xf86-input-libinput package.
 %setup -q -n xf86-input-libinput
 cd %{_builddir}/xf86-input-libinput
 %patch1 -p1
+%patch2 -p1
 
 %build
 unset http_proxy
@@ -389,7 +391,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1630902991
+export SOURCE_DATE_EPOCH=1631079503
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -537,7 +539,7 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1630902991
+export SOURCE_DATE_EPOCH=1631079503
 rm -rf %{buildroot}
 %make_install
 

@@ -1,5 +1,5 @@
 PKG_NAME := xf86-input-libinput
-URL = https://github.com/insilications/xf86-input-libinput-clr.git
+URL = https://gitlab.freedesktop.org/xorg/driver/xf86-input-libinput.git
 ARCHIVES = 
 ARCHIVES_GIT = 
 

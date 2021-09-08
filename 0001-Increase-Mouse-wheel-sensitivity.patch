@@ -1,0 +1,25 @@
+From ebe9bcd756eea5e0b3ed46e6690122ecc9154646 Mon Sep 17 00:00:00 2001
+From: Francisco Boni <boboniboni@gmail.com>
+Date: Mon, 6 Sep 2021 01:35:00 -0300
+Subject: [PATCH 1/2] Increase Mouse wheel sensitivity
+
+---
+ src/xf86libinput.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/xf86libinput.c b/src/xf86libinput.c
+index 0cb0c3c..892bbb9 100644
+--- a/src/xf86libinput.c
++++ b/src/xf86libinput.c
+@@ -1648,7 +1648,7 @@ get_wheel_120_value(struct xf86libinput *driver_data,
+ 	}
+ 
+ 	angle = libinput_event_pointer_get_scroll_value_v120(event, axis);
+-	return s->dist * angle/120;
++	return s->dist * angle/10;
+ }
+ #endif
+ 
+-- 
+2.32.0
+
