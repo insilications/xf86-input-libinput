@@ -1,4 +1,4 @@
-From 0c1f8a2c628443485e33d315099c3fdf053d811a Mon Sep 17 00:00:00 2001
+From a45f6633c39da7b8470601ca156fad28d8e99b69 Mon Sep 17 00:00:00 2001
 From: Francisco Boni <boboniboni@gmail.com>
 Date: Wed, 8 Sep 2021 02:21:36 -0300
 Subject: [PATCH 2/2] Increase priority of libinput
@@ -6,7 +6,8 @@ Subject: [PATCH 2/2] Increase priority of libinput
 ---
  Makefile.am                                 | 2 +-
  conf/{40-libinput.conf => 80-libinput.conf} | 0
- 2 files changed, 1 insertion(+), 1 deletion(-)
+ src/xf86libinput.c                          | 2 +-
+ 3 files changed, 2 insertions(+), 2 deletions(-)
  rename conf/{40-libinput.conf => 80-libinput.conf} (100%)
 
 diff --git a/Makefile.am b/Makefile.am
@@ -26,6 +27,19 @@ diff --git a/conf/40-libinput.conf b/conf/80-libinput.conf
 similarity index 100%
 rename from conf/40-libinput.conf
 rename to conf/80-libinput.conf
+diff --git a/src/xf86libinput.c b/src/xf86libinput.c
+index 892bbb9..6507989 100644
+--- a/src/xf86libinput.c
++++ b/src/xf86libinput.c
+@@ -1648,7 +1648,7 @@ get_wheel_120_value(struct xf86libinput *driver_data,
+ 	}
+ 
+ 	angle = libinput_event_pointer_get_scroll_value_v120(event, axis);
+-	return s->dist * angle/10;
++	return s->dist * angle/16;
+ }
+ #endif
+ 
 -- 
 2.32.0
 
