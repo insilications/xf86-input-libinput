@@ -4,349 +4,32 @@
 #
 %define keepstatic 1
 Name     : xf86-input-libinput
-Version  : 6.8.2021
-Release  : 414
-URL      : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v6.8.2021.tar.gz
-Source0  : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v6.8.2021.tar.gz
+Version  : 24.11.2021
+Release  : 415
+URL      : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v24.11.2021.tar.gz
+Source0  : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v24.11.2021.tar.gz
 Summary  : X.Org libinput input driver.
 Group    : Development/Tools
 License  : MIT
 Requires: xf86-input-libinput-data = %{version}-%{release}
 Requires: xf86-input-libinput-man = %{version}-%{release}
-BuildRequires : Botan
-BuildRequires : Botan-dev
-BuildRequires : Linux-PAM-dev
-BuildRequires : acl-dev
-BuildRequires : acl-dev32
-BuildRequires : acl-staticdev
-BuildRequires : acl-staticdev32
-BuildRequires : argon2-dev
-BuildRequires : asciidoctor
-BuildRequires : attr-dev
-BuildRequires : audit-dev
+BuildRequires : automake
 BuildRequires : automake-dev
-BuildRequires : binutils
-BuildRequires : binutils-dev
-BuildRequires : binutils-extras
-BuildRequires : bison
-BuildRequires : buildreq-cmake
-BuildRequires : buildreq-gnome
-BuildRequires : buildreq-kde
-BuildRequires : bzip2-dev
-BuildRequires : bzip2-dev32
-BuildRequires : bzip2-staticdev
-BuildRequires : cairo-lib
-BuildRequires : clr-desktop-defaults
-BuildRequires : cups
-BuildRequires : cups-filters
-BuildRequires : cups-pk-helper
-BuildRequires : dbus
-BuildRequires : dbus-autostart
-BuildRequires : dbus-bin
-BuildRequires : dbus-broker
-BuildRequires : dbus-config
-BuildRequires : dbus-data
-BuildRequires : dbus-dev
-BuildRequires : dbus-extras
-BuildRequires : dbus-glib-dev
-BuildRequires : dbus-lib
-BuildRequires : dbus-libexec
-BuildRequires : dbus-license
-BuildRequires : dbus-python
-BuildRequires : dbus-python-dev
-BuildRequires : dbus-services
-BuildRequires : dconf
-BuildRequires : dconf-dev
-BuildRequires : dejagnu
-BuildRequires : docbook-utils
-BuildRequires : docbook-xml
-BuildRequires : doxygen
-BuildRequires : e2fsprogs-dev
-BuildRequires : elfutils
-BuildRequires : elfutils-dev
-BuildRequires : evtest
-BuildRequires : expat-dev
-BuildRequires : expat-dev32
-BuildRequires : expat-staticdev
-BuildRequires : expat-staticdev32
-BuildRequires : expect
-BuildRequires : file-dev
-BuildRequires : findutils
-BuildRequires : flex
-BuildRequires : fontconfig-data
-BuildRequires : fontconfig-dev
-BuildRequires : fontconfig-lib
-BuildRequires : freetype-dev
-BuildRequires : freetype-lib
-BuildRequires : fribidi-dev
-BuildRequires : fuse
-BuildRequires : gcc
-BuildRequires : gcc-abi
-BuildRequires : gcc-dev
-BuildRequires : gcc-dev32
-BuildRequires : gcc-doc
-BuildRequires : gcc-libgcc32
-BuildRequires : gcc-libs-math
-BuildRequires : gcc-libstdc++32
-BuildRequires : gcc-libubsan
-BuildRequires : gcc-locale
-BuildRequires : gdb
-BuildRequires : gdb-dev
-BuildRequires : gettext
 BuildRequires : gettext-bin
-BuildRequires : git
-BuildRequires : gjs
-BuildRequires : glib
-BuildRequires : glib-data
-BuildRequires : glib-dev32
-BuildRequires : glib-lib
-BuildRequires : glib-networking
-BuildRequires : glibc-bench
-BuildRequires : glibc-bin
-BuildRequires : glibc-dev
-BuildRequires : glibc-dev32
-BuildRequires : glibc-doc
-BuildRequires : glibc-extras
-BuildRequires : glibc-lib-avx2
-BuildRequires : glibc-libc32
-BuildRequires : glibc-locale
-BuildRequires : glibc-nscd
-BuildRequires : glibc-staticdev
-BuildRequires : glibc-utils
-BuildRequires : gmp-dev
-BuildRequires : gmp-staticdev
-BuildRequires : gobject-introspection-dev
-BuildRequires : graphviz
-BuildRequires : graphviz-extras
-BuildRequires : harfbuzz-dev
-BuildRequires : harfbuzz-lib
-BuildRequires : itstool
-BuildRequires : keyutils-dev
-BuildRequires : libICE-dev
-BuildRequires : libSM-dev
-BuildRequires : libX11
-BuildRequires : libX11-data
-BuildRequires : libX11-dev
-BuildRequires : libX11-lib
-BuildRequires : libXScrnSaver-dev
-BuildRequires : libXScrnSaver-lib
-BuildRequires : libXau-dev
-BuildRequires : libXau-lib
-BuildRequires : libXcomposite-dev
-BuildRequires : libXcursor-dev
-BuildRequires : libXcursor-lib
-BuildRequires : libXdamage-dev
-BuildRequires : libXdamage-lib
-BuildRequires : libXdmcp-dev
-BuildRequires : libXdmcp-lib
-BuildRequires : libXext-dev
-BuildRequires : libXext-lib
-BuildRequires : libXfixes-dev
-BuildRequires : libXft-dev
-BuildRequires : libXft-lib
-BuildRequires : libXi-dev
-BuildRequires : libXi-lib
-BuildRequires : libXinerama-dev
-BuildRequires : libXmu-dev
-BuildRequires : libXpm-dev
-BuildRequires : libXrandr-dev
-BuildRequires : libXrender-dev
-BuildRequires : libXrender-lib
-BuildRequires : libXres-dev
-BuildRequires : libXt-dev
-BuildRequires : libXtst-dev
-BuildRequires : libXtst-lib
-BuildRequires : libXv-dev
-BuildRequires : libXxf86vm-dev
-BuildRequires : libXxf86vm-lib
-BuildRequires : libcap
-BuildRequires : libcap-dev
-BuildRequires : libedit
-BuildRequires : libedit-dev
-BuildRequires : libffi-dev
-BuildRequires : libffi-staticdev
-BuildRequires : libgcc1
-BuildRequires : libgcrypt
-BuildRequires : libgcrypt-dev
-BuildRequires : libgpg-error-dev
-BuildRequires : libinput-data
-BuildRequires : libinput-dev
-BuildRequires : libinput-lib
-BuildRequires : libinput-libexec
-BuildRequires : libmicrohttpd
-BuildRequires : libmicrohttpd-dev
-BuildRequires : libpng-lib
-BuildRequires : libseccomp-dev
-BuildRequires : libsecret
-BuildRequires : libsecret-bin
-BuildRequires : libsecret-data
-BuildRequires : libsecret-dev
-BuildRequires : libsecret-lib
-BuildRequires : libsecret-license
-BuildRequires : libsecret-locales
-BuildRequires : libsecret-man
-BuildRequires : libsodium
-BuildRequires : libsodium-dev
-BuildRequires : libstdc++
 BuildRequires : libtool
 BuildRequires : libtool-dev
-BuildRequires : libunwind
-BuildRequires : libunwind-dev
-BuildRequires : libxcb-lib
-BuildRequires : libxkbcommon-dev
-BuildRequires : libxml2-dev
-BuildRequires : libxslt-bin
-BuildRequires : lz4-dev
-BuildRequires : lz4-staticdev
-BuildRequires : lzo-dev
-BuildRequires : lzo-dev32
-BuildRequires : lzo-staticdev
-BuildRequires : lzo-staticdev32
 BuildRequires : m4
-BuildRequires : mesa-dev
-BuildRequires : mesa-lib
-BuildRequires : mtdev
-BuildRequires : ncurses-dev
-BuildRequires : numlockx
-BuildRequires : openssl
-BuildRequires : openssl-dev
-BuildRequires : openssl-dev32
-BuildRequires : openssl-staticdev
-BuildRequires : openssl-staticdev32
-BuildRequires : p11-kit-dev
-BuildRequires : pango-lib
-BuildRequires : perl
-BuildRequires : perl(XML::Parser)
-BuildRequires : pixman-lib
-BuildRequires : pkg-config
 BuildRequires : pkg-config-dev
-BuildRequires : pkgconfig(32check)
-BuildRequires : pkgconfig(32fribidi)
-BuildRequires : pkgconfig(32glib-2.0)
-BuildRequires : pkgconfig(32libevdev)
-BuildRequires : pkgconfig(32libsystemd)
-BuildRequires : pkgconfig(32libudev)
-BuildRequires : pkgconfig(32mtdev)
-BuildRequires : pkgconfig(check)
-BuildRequires : pkgconfig(dbus-1)
-BuildRequires : pkgconfig(fribidi)
-BuildRequires : pkgconfig(glib-2.0)
-BuildRequires : pkgconfig(gtk+-3.0)
 BuildRequires : pkgconfig(inputproto)
-BuildRequires : pkgconfig(libevdev)
 BuildRequires : pkgconfig(libinput)
-BuildRequires : pkgconfig(libsystemd)
-BuildRequires : pkgconfig(libudev)
-BuildRequires : pkgconfig(mtdev)
 BuildRequires : pkgconfig(xorg-macros)
 BuildRequires : pkgconfig(xorg-server)
 BuildRequires : pkgconfig(xproto)
-BuildRequires : popt-dev
-BuildRequires : pygobject
-BuildRequires : pygobject-dev
-BuildRequires : python3
-BuildRequires : python3-dev
-BuildRequires : python3-staticdev
-BuildRequires : qrencode-dev
-BuildRequires : qtbase-dev
-BuildRequires : qttools-extras
-BuildRequires : qtx11extras-dev
-BuildRequires : quazip
-BuildRequires : quazip-dev
-BuildRequires : quazip-staticdev
-BuildRequires : readline-dev
-BuildRequires : readline-staticdev
-BuildRequires : setxkbmap
-BuildRequires : sqlite-autoconf
-BuildRequires : systemd
-BuildRequires : systemd-autostart
-BuildRequires : systemd-bin
-BuildRequires : systemd-config
-BuildRequires : systemd-data
+BuildRequires : sd
 BuildRequires : systemd-dev
-BuildRequires : systemd-dev32
-BuildRequires : systemd-extras
-BuildRequires : systemd-lib
-BuildRequires : systemd-license
-BuildRequires : systemd-locales
-BuildRequires : systemd-man
-BuildRequires : systemd-services
-BuildRequires : unzip
-BuildRequires : util-linux-dev
-BuildRequires : vala-dev
-BuildRequires : valgrind
-BuildRequires : valgrind-dev
-BuildRequires : wayland-dev
-BuildRequires : weston
-BuildRequires : wmctrl
-BuildRequires : xauth
-BuildRequires : xauth-bin
-BuildRequires : xcb-proto
-BuildRequires : xclip
-BuildRequires : xclip-bin
-BuildRequires : xcursor-themes
-BuildRequires : xdg-dbus-proxy
-BuildRequires : xdg-desktop-portal
-BuildRequires : xdg-desktop-portal-kde
-BuildRequires : xdg-user-dirs
-BuildRequires : xdg-utils
-BuildRequires : xdotool
-BuildRequires : xdpyinfo
-BuildRequires : xf86-input-evdev
-BuildRequires : xf86-input-libinput
-BuildRequires : xf86-input-libinput-dev
-BuildRequires : xf86-video-amdgpu
-BuildRequires : xf86-video-ati
-BuildRequires : xf86-video-fbdev
-BuildRequires : xf86-video-nouveau
-BuildRequires : xf86-video-qxl
-BuildRequires : xf86-video-vboxvideo
-BuildRequires : xf86-video-vesa
-BuildRequires : xfontsel
-BuildRequires : xhost
-BuildRequires : xinit
-BuildRequires : xinput
-BuildRequires : xkbcomp
-BuildRequires : xkbcomp-bin
-BuildRequires : xkeyboard-config
-BuildRequires : xkill
-BuildRequires : xmodmap
-BuildRequires : xorg-fonts
-BuildRequires : xorg-server
-BuildRequires : xorg-server-bin
-BuildRequires : xorg-server-dev
-BuildRequires : xorgproto-dev
-BuildRequires : xprop
-BuildRequires : xrandr
-BuildRequires : xrdb
-BuildRequires : xrdp
-BuildRequires : xrestop
-BuildRequires : xsel
-BuildRequires : xset
-BuildRequires : xsetroot
-BuildRequires : xterm
-BuildRequires : xvfb-run
-BuildRequires : xwd
-BuildRequires : xwininfo
-BuildRequires : xz-dev
-BuildRequires : xz-dev32
-BuildRequires : xz-staticdev
-BuildRequires : xz-staticdev32
-BuildRequires : zip
-BuildRequires : zlib
-BuildRequires : zlib-dev
-BuildRequires : zlib-dev32
-BuildRequires : zlib-staticdev
-BuildRequires : zlib-staticdev32
-BuildRequires : zstd-dev
-BuildRequires : zstd-dev32
-BuildRequires : zstd-staticdev
-BuildRequires : zstd-staticdev32
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
-Patch1: 0001-Bump-priority-of-libinput.patch
-Patch2: 0002-Increase-mouse-wheel-sensitivity.patch
 
 %description
 xf86-input-libinput - a libinput-based X driver
@@ -382,8 +65,6 @@ man components for the xf86-input-libinput package.
 %prep
 %setup -q -n xf86-input-libinput
 cd %{_builddir}/xf86-input-libinput
-%patch1 -p1
-%patch2 -p1
 
 %build
 unset http_proxy
@@ -391,7 +72,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1631656149
+export SOURCE_DATE_EPOCH=1637764082
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -399,25 +80,25 @@ export NM=gcc-nm
 ## altflags_pgo content
 ## pgo generate
 export PGO_GEN="-fprofile-generate=/var/tmp/pgo -fprofile-dir=/var/tmp/pgo -fprofile-abs-path -fprofile-update=atomic -fprofile-arcs -ftest-coverage -fprofile-partial-training -fprofile-correction -freorder-functions --coverage -lgcov"
-export CFLAGS_GENERATE="-Ofast --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_GEN"
-export FCFLAGS_GENERATE="-Ofast --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_GEN"
-export FFLAGS_GENERATE="-Ofast --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_GEN"
-export CXXFLAGS_GENERATE="-Ofast --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -fvisibility-inlines-hidden -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_GEN"
-export LDFLAGS_GENERATE="-Ofast --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_GEN"
+export CFLAGS_GENERATE="-O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_GEN"
+export FCFLAGS_GENERATE="-O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_GEN"
+export FFLAGS_GENERATE="-O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_GEN"
+export CXXFLAGS_GENERATE="-O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -fvisibility-inlines-hidden -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_GEN"
+export LDFLAGS_GENERATE="-O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_GEN"
 export LIBS_GENERATE="-lgcov"
 ## pgo use
-## -fno-tree-vectorize: disable -ftree-vectorize thus disable -ftree-loop-vectorize and -ftree-slp-vectorize
+## -fno-tree-vectorize: disable -ftree-vectorize thus disable -ftree-loop-vectorize and -ftree-slp-vectorize -fopt-info-vec
 ## -Ofast -ffast-math
 ## -funroll-loops maybe dangerous
 ## -Wl,-z,max-page-size=0x1000
 ## -pthread -lpthread
 ## -Wl,-Bsymbolic-functions
 export PGO_USE="-Wmissing-profile -Wcoverage-mismatch -fprofile-use=/var/tmp/pgo -fprofile-dir=/var/tmp/pgo -fprofile-abs-path -fprofile-update=atomic -fprofile-partial-training -fprofile-correction -freorder-functions"
-export CFLAGS_USE="-g3 -ggdb -Ofast --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_USE"
-export FCFLAGS_USE="-g3 -ggdb -Ofast --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_USE"
-export FFLAGS_USE="-g3 -ggdb -Ofast --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_USE"
-export CXXFLAGS_USE="-g3 -ggdb -Ofast --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -fvisibility-inlines-hidden -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_USE"
-export LDFLAGS_USE="-g3 -ggdb -Ofast --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_USE"
+export CFLAGS_USE="-g3 -ggdb -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_USE"
+export FCFLAGS_USE="-g3 -ggdb -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_USE"
+export FFLAGS_USE="-g3 -ggdb -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_USE"
+export CXXFLAGS_USE="-g3 -ggdb -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -fvisibility-inlines-hidden -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_USE"
+export LDFLAGS_USE="-g3 -ggdb -O3 --param=lto-max-streaming-parallelism=16 -march=native -mtune=native -fgraphite-identity -Wall -Wl,--as-needed -Wl,--build-id=sha1 -Wl,--enable-new-dtags -Wl,--hash-style=gnu -Wl,-O2 -Wl,-z,now,-z,relro,-z,max-page-size=0x1000,-z,separate-code -Wno-error -mprefer-vector-width=256 -falign-functions=32 -flimit-function-alignment -fasynchronous-unwind-tables -fdevirtualize-at-ltrans -floop-nest-optimize -floop-block -fno-math-errno -fno-semantic-interposition -Wl,-Bsymbolic-functions -fno-stack-protector -fno-trapping-math -ftree-loop-distribute-patterns -ftree-loop-vectorize -ftree-slp-vectorize -ftree-vectorize -fuse-ld=bfd -fuse-linker-plugin -malign-data=cacheline -feliminate-unused-debug-types -fipa-pta -flto=auto -fno-plt -mtls-dialect=gnu2 -Wl,-sort-common -Wno-error -Wp,-D_REENTRANT -pipe -ffat-lto-objects -fPIC -fomit-frame-pointer -fexceptions -static-libstdc++ -static-libgcc $PGO_USE"
 #
 export AR=/usr/bin/gcc-ar
 export RANLIB=/usr/bin/gcc-ranlib
@@ -451,9 +132,9 @@ export PATH="/usr/lib64/ccache/bin:/usr/local/cuda/bin:/usr/nvidia/bin:/usr/bin/
 export CPATH="/usr/local/cuda/include"
 #
 export DISPLAY=:0
-export __GL_SYNC_TO_VBLANK=0
-export __GL_SYNC_DISPLAY_DEVICE=DFP-1
-export VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=DFP-1
+export __GL_SYNC_TO_VBLANK=1
+export __GL_SYNC_DISPLAY_DEVICE=HDMI-0
+export VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=HDMI-0
 export LANG=en_US.UTF-8
 export XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
 export XDG_SEAT=seat0
@@ -538,7 +219,7 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1631656149
+export SOURCE_DATE_EPOCH=1637764082
 rm -rf %{buildroot}
 %make_install
 
@@ -553,6 +234,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 /usr/include/xorg/libinput-properties.h
 /usr/lib64/pkgconfig/xorg-libinput.pc
+/usr/lib64/xorg/modules/input/libinput_drv.la
 /usr/lib64/xorg/modules/input/libinput_drv.so
 
 %files man
