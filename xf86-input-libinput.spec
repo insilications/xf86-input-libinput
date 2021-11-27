@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : xf86-input-libinput
 Version  : 24.11.2021
-Release  : 415
+Release  : 501
 URL      : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v24.11.2021.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v24.11.2021.tar.gz
 Summary  : X.Org libinput input driver.
@@ -72,7 +72,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1637764082
+export SOURCE_DATE_EPOCH=1638013256
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -219,7 +219,7 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1637764082
+export SOURCE_DATE_EPOCH=1638013256
 rm -rf %{buildroot}
 %make_install
 
