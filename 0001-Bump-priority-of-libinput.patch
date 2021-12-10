@@ -1,4 +1,4 @@
-From e66144728d3fb9a90a787599feb1b6a7df0a7683 Mon Sep 17 00:00:00 2001
+From 60b50ed2bdd1778bfebfee17453ad1cb55026269 Mon Sep 17 00:00:00 2001
 From: Francisco Boni <boboniboni@gmail.com>
 Date: Wed, 8 Sep 2021 02:46:30 -0300
 Subject: [PATCH 1/2] Bump priority of libinput
@@ -27,5 +27,5 @@ similarity index 100%
 rename from conf/40-libinput.conf
 rename to conf/80-libinput.conf
 -- 
-2.32.0
+2.34.1
 
