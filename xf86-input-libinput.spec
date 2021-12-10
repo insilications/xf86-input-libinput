@@ -5,14 +5,12 @@
 %define keepstatic 1
 Name     : xf86-input-libinput
 Version  : 24.11.2021
-Release  : 501
+Release  : 502
 URL      : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v24.11.2021.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/xf86-input-libinput/xf86-input-libinput-v24.11.2021.tar.gz
 Summary  : X.Org libinput input driver.
 Group    : Development/Tools
 License  : MIT
-Requires: xf86-input-libinput-data = %{version}-%{release}
-Requires: xf86-input-libinput-man = %{version}-%{release}
 BuildRequires : automake
 BuildRequires : automake-dev
 BuildRequires : gettext-bin
@@ -35,33 +33,6 @@ BuildRequires : systemd-dev
 xf86-input-libinput - a libinput-based X driver
 ===============================================
 
-%package data
-Summary: data components for the xf86-input-libinput package.
-Group: Data
-
-%description data
-data components for the xf86-input-libinput package.
-
-
-%package dev
-Summary: dev components for the xf86-input-libinput package.
-Group: Development
-Requires: xf86-input-libinput-data = %{version}-%{release}
-Provides: xf86-input-libinput-devel = %{version}-%{release}
-Requires: xf86-input-libinput = %{version}-%{release}
-
-%description dev
-dev components for the xf86-input-libinput package.
-
-
-%package man
-Summary: man components for the xf86-input-libinput package.
-Group: Default
-
-%description man
-man components for the xf86-input-libinput package.
-
-
 %prep
 %setup -q -n xf86-input-libinput
 cd %{_builddir}/xf86-input-libinput
@@ -72,7 +43,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1638013256
+export SOURCE_DATE_EPOCH=1639111188
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -173,9 +144,9 @@ make  %{?_smp_mflags}    V=1 VERBOSE=1
 unset LD_LIBRARY_PATH
 unset LIBRARY_PATH
 export DISPLAY=:0
-export __GL_SYNC_TO_VBLANK=0
-export __GL_SYNC_DISPLAY_DEVICE=DFP-1
-export VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=DFP-1
+export __GL_SYNC_TO_VBLANK=1
+export __GL_SYNC_DISPLAY_DEVICE=HDMI-0
+export VDPAU_NVIDIA_SYNC_DISPLAY_DEVICE=HDMI-0
 export LANG=en_US.UTF-8
 export XDG_CONFIG_DIRS=/usr/share/xdg:/etc/xdg
 export XDG_SEAT=seat0
@@ -196,7 +167,6 @@ export LIBVA_DRIVERS_PATH=/usr/lib64/dri
 export GTK_RC_FILES=/etc/gtk/gtkrc
 export FONTCONFIG_PATH=/usr/share/defaults/fonts
 export LD_LIBRARY_PATH="/aot/var/lib/mock/clear-xf86-input-libinput/root/builddir/build/BUILD/xf86-input-libinput/src/.libs:/usr/nvidia/lib64:/usr/nvidia/lib64/vdpau:/usr/nvidia/lib64/xorg/modules/drivers:/usr/nvidia/lib64/xorg/modules/extensions:/usr/local/cuda/lib64:/usr/lib64/haswell:/usr/lib64/haswell/pulseaudio:/usr/lib64/haswell/alsa-lib:/usr/lib64/haswell/gstreamer-1.0:/usr/lib64/haswell/pipewire-0.3:/usr/lib64/haswell/spa-0.2:/usr/lib64/dri:/usr/lib64/chromium:/usr/lib64:/usr/lib64/pulseaudio:/usr/lib64/alsa-lib:/usr/lib64/gstreamer-1.0:/usr/lib64/pipewire-0.3:/usr/lib64/spa-0.2:/usr/lib:/aot/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_lin:/aot/intel/oneapi/compiler/latest/linux/lib:/aot/intel/oneapi/mkl/latest/lib/intel64:/aot/intel/oneapi/tbb/latest/lib/intel64/gcc4.8:/usr/share:/usr/lib64/wine:/usr/nvidia/lib32:/usr/nvidia/lib32/vdpau:/usr/lib32:/usr/lib32/wine"
-export $(dbus-launch)
 make check -j1 V=1 VERBOSE=1 || :
 export LD_LIBRARY_PATH="/usr/nvidia/lib64:/usr/nvidia/lib64/vdpau:/usr/nvidia/lib64/xorg/modules/drivers:/usr/nvidia/lib64/xorg/modules/extensions:/usr/local/cuda/lib64:/usr/lib64/haswell:/usr/lib64/haswell/pulseaudio:/usr/lib64/haswell/alsa-lib:/usr/lib64/haswell/gstreamer-1.0:/usr/lib64/haswell/pipewire-0.3:/usr/lib64/haswell/spa-0.2:/usr/lib64/dri:/usr/lib64/chromium:/usr/lib64:/usr/lib64/pulseaudio:/usr/lib64/alsa-lib:/usr/lib64/gstreamer-1.0:/usr/lib64/pipewire-0.3:/usr/lib64/spa-0.2:/usr/lib:/aot/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_lin:/aot/intel/oneapi/compiler/latest/linux/lib:/aot/intel/oneapi/mkl/latest/lib/intel64:/aot/intel/oneapi/tbb/latest/lib/intel64/gcc4.8:/usr/share:/usr/lib64/wine:/usr/nvidia/lib32:/usr/nvidia/lib32/vdpau:/usr/lib32:/usr/lib32/wine"
 export LIBRARY_PATH="/usr/nvidia/lib64:/usr/nvidia/lib64/vdpau:/usr/nvidia/lib64/xorg/modules/drivers:/usr/nvidia/lib64/xorg/modules/extensions:/usr/local/cuda/lib64:/usr/lib64/haswell:/usr/lib64/haswell/pulseaudio:/usr/lib64/haswell/alsa-lib:/usr/lib64/haswell/gstreamer-1.0:/usr/lib64/haswell/pipewire-0.3:/usr/lib64/haswell/spa-0.2:/usr/lib64/dri:/usr/lib64/chromium:/usr/lib64:/usr/lib64/pulseaudio:/usr/lib64/alsa-lib:/usr/lib64/gstreamer-1.0:/usr/lib64/pipewire-0.3:/usr/lib64/spa-0.2:/usr/lib:/aot/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_lin:/aot/intel/oneapi/compiler/latest/linux/lib:/aot/intel/oneapi/mkl/latest/lib/intel64:/aot/intel/oneapi/tbb/latest/lib/intel64/gcc4.8:/usr/share:/usr/lib64/wine:/usr/nvidia/lib32:/usr/nvidia/lib32/vdpau:/usr/lib32:/usr/lib32/wine"
@@ -211,7 +181,7 @@ export CXXFLAGS="${CXXFLAGS_USE}"
 export FFLAGS="${FFLAGS_USE}"
 export FCFLAGS="${FCFLAGS_USE}"
 export LDFLAGS="${LDFLAGS_USE}"
-unset LIBS
+export LIBS="${LIBS_USE}"
 %autogen --enable-shared \
 --disable-static
 make  %{?_smp_mflags}    V=1 VERBOSE=1
@@ -219,24 +189,9 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1638013256
+export SOURCE_DATE_EPOCH=1639111188
 rm -rf %{buildroot}
 %make_install
 
 %files
 %defattr(-,root,root,-)
-
-%files data
-%defattr(-,root,root,-)
-/usr/share/X11/xorg.conf.d/80-libinput.conf
-
-%files dev
-%defattr(-,root,root,-)
-/usr/include/xorg/libinput-properties.h
-/usr/lib64/pkgconfig/xorg-libinput.pc
-/usr/lib64/xorg/modules/input/libinput_drv.la
-/usr/lib64/xorg/modules/input/libinput_drv.so
-
-%files man
-%defattr(0644,root,root,0755)
-/usr/share/man/man4/libinput.4
